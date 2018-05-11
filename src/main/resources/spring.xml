@@ -11,11 +11,15 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
+    <!-- Import resources -->
+    <import resource="loggers.xml"/>
+    <import resource="aspects.xml" />
+
     <bean id="app" class="App">
         <constructor-arg ref="client"/>
         <!-- Usage of expression language -->
         <constructor-arg ref="#{ T(beans.Event).isDay(8,17) ?
-            cacheFileEventLogger : consoleEventLogger }"/>
+            cacheFileLogger : consoleLogger }"/>
         <!-- Pass loggerMap map object as constructor argument -->
         <constructor-arg ref="loggerMap"/>
     </bean>
@@ -48,14 +52,10 @@
         <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
     </bean>
 
-    <!-- Import resources -->
-    <import resource="loggers.xml"/>
-    <import resource="aspects.xml" />
-
     <!-- Use 'utils' for creating reusable lists and maps -->
     <util:map id="loggerMap">
-        <entry key="INFO" value-ref="consoleEventLogger" />
-        <entry key="ERROR" value-ref="combinedEventLogger" />
+        <entry key="INFO" value-ref="consoleLogger" />
+        <entry key="ERROR" value-ref="combinedLogger" />
     </util:map>
 
 </beans>

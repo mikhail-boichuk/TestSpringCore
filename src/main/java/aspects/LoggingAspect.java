@@ -33,7 +33,7 @@ public class LoggingAspect {
     // Execute after join point trow exception
     @AfterThrowing(
             pointcut = "allLogEventMethods()",
-            throwing= "retVal"
+            throwing= "ex"
     )
     public void returnAfterThrow(Throwable ex) {
         System.out.println("Thrown " + ex);
