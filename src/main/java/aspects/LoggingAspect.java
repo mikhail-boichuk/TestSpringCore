@@ -21,6 +21,7 @@ public class LoggingAspect {
                 joinPoint.getSignature().getName());
     }
 
+    /*
     // Execute after join point return its value
     @AfterReturning(
             pointcut = "allLogEventMethods()",
@@ -29,6 +30,7 @@ public class LoggingAspect {
     public void logAfter(Object retVal) {
         System.out.println("Returned value" + retVal);
     }
+    */
 
     // Execute after join point trow exception
     @AfterThrowing(

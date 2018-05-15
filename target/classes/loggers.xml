@@ -14,7 +14,6 @@
         <constructor-arg value="D:\tmp\SpringTest\log.txt"/>
     </bean>
 
-
     <bean id="cacheFileLogger" class="loggers.CacheFileEventLogger" parent="fileLogger" destroy-method="destroy">
         <constructor-arg value="15"/>
     </bean>

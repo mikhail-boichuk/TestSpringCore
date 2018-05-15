@@ -21,7 +21,10 @@ public class CacheFileEventLogger extends FileEventLogger {
         cache.add(event);
 
         if (cache.size() == cacheSize) {
-            writeEventsFromCache();
+           // writeEventsFromCache();
+            for (Event e : cache) {
+                super.logEvent(e);
+            }
             cache.clear();
         }
     }
@@ -34,7 +37,10 @@ public class CacheFileEventLogger extends FileEventLogger {
 
     private void destroy () {
         if (!cache.isEmpty()) {
-            writeEventsFromCache();
+            //writeEventsFromCache();
+            for (Event e : cache) {
+                super.logEvent(e);
+            }
         }
     }
 }

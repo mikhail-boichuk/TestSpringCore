@@ -17,10 +17,9 @@
 
     <bean id="app" class="App">
         <constructor-arg ref="client"/>
-        <!-- Usage of expression language
+        <!-- Usage of expression language -->
         <constructor-arg ref="#{ T(beans.Event).isDay(8,17) ?
-            cacheFileLogger : consoleLogger }"/> -->
-        <constructor-arg ref="cacheFileLogger"/>
+            cacheFileLogger : consoleLogger }"/>
         <!-- Pass loggerMap map object as constructor argument -->
         <constructor-arg ref="loggerMap"/>
     </bean>

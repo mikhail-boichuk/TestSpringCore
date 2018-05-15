@@ -27,7 +27,7 @@ public class App {
         ctx.close();
     }
 
-    private App(Client client, EventLogger eventLogger, Map<EventType, EventLogger> loggers) {
+    public App(Client client, EventLogger eventLogger, Map<EventType, EventLogger> loggers) {
         this.client = client;
         this.defaultEventLogger = eventLogger;
         this.loggers = loggers;
